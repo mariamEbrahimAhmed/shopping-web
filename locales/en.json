@@ -8,5 +8,8 @@
   "home": {
     "title": "Shopping App",
     "subtitle": "Find the best products"
+  },
+  "theme": {
+    "toggle": "Toggle theme"
   }
 }

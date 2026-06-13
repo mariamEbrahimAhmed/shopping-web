@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-black transition-colors duration-300;
+  }
+
+  html.dark body {
+    @apply bg-slate-950 text-white;
+  }
+
+  html.dark {
+    background-color: #0f172a;
+    color: #ffffff;
+  }
+}

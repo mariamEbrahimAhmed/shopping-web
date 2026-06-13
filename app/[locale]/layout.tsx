@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { ThemeProvider } from '@/utils/theme-provider';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -23,8 +24,10 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <NextIntlClientProvider messages={messages}>
-      {children}
-    </NextIntlClientProvider>
+    <ThemeProvider>
+      <NextIntlClientProvider messages={messages}>
+        {children}
+      </NextIntlClientProvider>
+    </ThemeProvider>
   );
 }
