@@ -1,0 +1,12 @@
+{
+  "navigation": {
+    "home": "Home",
+    "products": "Products",
+    "cart": "Cart",
+    "about": "About"
+  },
+  "home": {
+    "title": "Shopping App",
+    "subtitle": "Find the best products"
+  }
+}
