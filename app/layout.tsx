@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -6,13 +7,16 @@ export const metadata: Metadata = {
   description: "A modern shopping application",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const isArabic = locale === "ar";
+
   return (
-    <html suppressHydrationWarning>
+    <html lang={locale} dir={isArabic ? "rtl" : "ltr"} suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );
